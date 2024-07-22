@@ -1,0 +1,63 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<wsdl:definitions name="TableName_Pranita"
+		xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/"
+		xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/"
+		xmlns:xsd="http://www.w3.org/2001/XMLSchema"
+		xmlns:tns="http://www.talend.org/service/"
+		targetNamespace="http://www.talend.org/service/">
+
+	<wsdl:types>
+		<xsd:schema xmlns:xsd="http://www.w3.org/2001/XMLSchema"
+			targetNamespace="http://www.talend.org/service/">
+			<xsd:element name="TableName_PranitaOperationRequest">
+				<xsd:complexType>
+					<xsd:sequence>
+						<xsd:element name="TableName" type="xsd:string"></xsd:element>
+					</xsd:sequence>
+				</xsd:complexType>
+			</xsd:element>
+			<xsd:element name="TableName_PranitaOperationResponse">
+				<xsd:complexType>
+					<xsd:sequence>
+						<xsd:element name="tableschema" type="xsd:string"></xsd:element>
+					</xsd:sequence>
+				</xsd:complexType>
+			</xsd:element>
+		
+            <xsd:complexType name="dynamic"></xsd:complexType>
+        </xsd:schema>
+	</wsdl:types>
+
+	<wsdl:message name="TableName_PranitaOperationRequest">
+		<wsdl:part name="parameters" element="tns:TableName_PranitaOperationRequest"></wsdl:part>
+	</wsdl:message>
+	<wsdl:message name="TableName_PranitaOperationResponse">
+		<wsdl:part name="parameters" element="tns:TableName_PranitaOperationResponse"></wsdl:part>
+	</wsdl:message>
+
+	<wsdl:portType name="TableName_PranitaPortType">
+		<wsdl:operation name="TableName_PranitaOperation">
+			<wsdl:input message="tns:TableName_PranitaOperationRequest"></wsdl:input>
+			<wsdl:output message="tns:TableName_PranitaOperationResponse"></wsdl:output>
+		</wsdl:operation>
+	</wsdl:portType>
+
+	<wsdl:binding name="TableName_PranitaBinding" type="tns:TableName_PranitaPortType">
+		<soap:binding style="document" transport="http://schemas.xmlsoap.org/soap/http" />
+		<wsdl:operation name="TableName_PranitaOperation">
+			<soap:operation soapAction="http://www.talend.org/service/TableName_PranitaOperation" />
+			<wsdl:input>
+				<soap:body use="literal" />
+			</wsdl:input>
+			<wsdl:output>
+				<soap:body use="literal" />
+			</wsdl:output>
+		</wsdl:operation>
+	</wsdl:binding>
+
+	<wsdl:service name="TableName_Pranita">
+		<wsdl:port name="TableName_PranitaPort" binding="tns:TableName_PranitaBinding">
+			<soap:address location="http://localhost:8090/services/TableName_Pranita" />
+		</wsdl:port>
+	</wsdl:service>
+</wsdl:definitions>
