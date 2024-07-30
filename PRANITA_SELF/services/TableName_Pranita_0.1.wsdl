@@ -19,12 +19,14 @@
 			<xsd:element name="TableName_PranitaOperationResponse">
 				<xsd:complexType>
 					<xsd:sequence>
-						<xsd:element name="tableschema" type="xsd:string"></xsd:element>
+						<xsd:element name="tableschema" type="tns:tableschemaType"></xsd:element>
 					</xsd:sequence>
 				</xsd:complexType>
 			</xsd:element>
 		
             <xsd:complexType name="dynamic"></xsd:complexType>
+        
+            <xsd:complexType name="tableschemaType"></xsd:complexType>
         </xsd:schema>
 	</wsdl:types>
 
